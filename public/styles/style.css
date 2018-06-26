@@ -8,7 +8,7 @@
   padding: 0.25em 0.5em; */
   border-radius: 5px;
 }
-/* 
+/*
 .actions span:hover {
   border: 1px solid grey;
 } */
@@ -34,4 +34,13 @@
   margin: 0;
   width: 100%;
   height: 100%;
+}
+
+#nav-mobile {
+  display: none;
+}
+
+#bat {
+  height: 28px;
+  margin-top: 10px;
 }
