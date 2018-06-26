@@ -44,3 +44,12 @@
   height: 28px;
   margin-top: 10px;
 }
+
+.crudButts {
+   border: 1px solid grey;
+   padding: 5px;
+}
+
+.crudButts:hover {
+   cursor: pointer;
+}
