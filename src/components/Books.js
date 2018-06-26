@@ -11,7 +11,8 @@ class Books extends Component {
           onDeleteBook={this.props.onDeleteBook}
           editingBookId={this.props.editingBookId}
           onEditBook={this.props.onEditBook}
-          onUpdateBook={this.props.onUpdateBook} />
+          onUpdateBook={this.props.onUpdateBook}
+          updateCheckbox={this.props.updateCheckbox}/>
       )
     })
     return(

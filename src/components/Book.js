@@ -1,12 +1,19 @@
 import React, {Component} from 'react'
 import BookForm from './BookForm'
+import Checkbox from './Checkbox'
 import {Card, CardTitle, Col} from 'react-materialize'
+
 class Book extends Component {
 
   constructor() {
-    super();
+    super()
+    this.state = {
+      bookComplete: false
+    }
+
     this.deleteClickedBook = this.deleteClickedBook.bind(this)
     this.editClickedBook = this.editClickedBook.bind(this)
+    this.bookComplete = this.bookComplete.bind(this)
   }
   deleteClickedBook() {
     this.props.onDeleteBook(this.props.book);
@@ -14,22 +21,31 @@ class Book extends Component {
   editClickedBook() {
       this.props.onEditBook(this.props.book)
   }
-  render(){
+  bookComplete() {
+    this.setState({bookComplete: !this.state.bookComplete })
+    console.log('book complete')
+  }
+
+  render() {
+    let styling = this.state.bookComplete ? "large card completed" : "large card"
     return(
       <Col m={4}>
-        <Card data-books-index={this.props.book.id} className='large card'
+        <Card data-books-index={this.props.book.id}
+          className={styling}
           header={<CardTitle image={this.props.book.image}></CardTitle>}
           actions={[
             <div>
               { this.props.editingBookId === this.props.book._id ? <BookForm
+                                                                      book={this.props.book}
                                                                       className="update"
                                                                       autoFocus={true}
                                                                       buttonName="Update Book!"
-                                                                      onUpdateBook={this.props.onUpdateBook} /> :
-                                                                  <div className="actions">
-                                                                    <span onClick={ this.editClickedBook }>Edit Entry</span>
-                                                                    <span onClick={this.deleteClickedBook}> Delete Entry </span>
-                                                                  </div>}
+                                                                      onUpdateBook={this.props.onUpdateBook} />
+                                                                 : <div className="actions">
+                                                                     <span onClick={this.editClickedBook}>Edit Entry</span>
+                                                                     <span onClick={this.deleteClickedBook}> Delete Entry </span>
+                                                                       <Checkbox toggleHaveRead={this.bookComplete}/>
+                                                                   </div>}
 
             </div>]}>
           <p>{this.props.book.title}</p>

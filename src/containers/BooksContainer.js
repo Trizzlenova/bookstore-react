@@ -13,13 +13,15 @@ class BooksContainer extends Component {
         image: '',
         releaseDate: '',
         editingBookId: null,
-        editing: false
+        editing: false,
+        checked: false
       }]
     }
-    this.createBook = this.createBook.bind(this);
-    this.deleteBook = this.deleteBook.bind(this);
-    this.updateBook = this.updateBook.bind(this);
-    this.editBook = this.editBook.bind(this);
+    this.createBook = this.createBook.bind(this)
+    this.deleteBook = this.deleteBook.bind(this)
+    this.updateBook = this.updateBook.bind(this)
+    this.updateCheckbox = this.updateCheckbox.bind(this)
+    this.editBook = this.editBook.bind(this)
   }
 
   createBook(book) {
@@ -33,7 +35,7 @@ class BooksContainer extends Component {
           let books = this.state.books
           let newBooks = books.push(res.data)
           this.setState({newBooks})
-          console.log('I have created a book')
+          // console.log('I have created a book')
       })
   }
 
@@ -45,21 +47,32 @@ class BooksContainer extends Component {
           this.setState({books})
       })
   }
+  updateCheckbox(book) {
+    let books = this.state.books
+    let bookId = this.state.editingBookId
+    function isCheckedBook(book) {
+        return book._id === bookId;
+    }
+    // let bookChecked = 
+    console.log(books.find(isCheckedBook))
+    // !bookChecked.checked ? bookChecked.checked = true : bookChecked.checked = false
+    // this.setState({books: books, editingBookId: null, editing: false})
+  }
 
   updateBook(book) {
-      var bookId = this.state.editingBookId
+      let bookId = this.state.editingBookId
       console.log(bookId)
       function isUpdatedBook(book) {
           return book._id === bookId;
       }
       BookModel.update(bookId, book).then((res) => {
           let books = this.state.books
-          console.log(books)
+          // console.log(res)
 
-          books.find(isUpdatedBook).title = book.title
-          books.find(isUpdatedBook).author = book.author
-          books.find(isUpdatedBook).url = book.url
-          books.find(isUpdatedBook).releaseDate = book.releaseDate
+          books.find(isUpdatedBook).title = res.data.title
+          books.find(isUpdatedBook).author = res.data.author
+          books.find(isUpdatedBook).url = res.data.url
+          books.find(isUpdatedBook).releaseDate = res.data.releaseDate
           this.setState({books: books, editingBookId: null, editing: false})
       })
   }
@@ -96,7 +109,8 @@ class BooksContainer extends Component {
           editingBookId={this.state.editingBookId}
           deleteBook={ this.deleteBook }
           onEditBook={this.editBook}
-          onUpdateBook={this.updateBook}/>
+          onUpdateBook={this.updateBook}
+          updateCheckbox={this.updateCheckbox}/>
         <CreateBookForm
           createBook={ this.createBook }/>
       </main>

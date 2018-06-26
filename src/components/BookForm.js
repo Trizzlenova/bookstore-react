@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 
 class BookForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -30,30 +30,30 @@ class BookForm extends Component {
             name="title"
             autoFocus={this.props.autoFocus}
             onChange={ this.onChange }
-            placeholder='Edit Title'
+            placeholder= {this.props.book.title || 'Edit Title'}
             type='text'
-            value={(this.state && this.state.title) || ''} />
+            value={(this.state && this.state.title) ||  ''} />
           <input
             name="author"
             autoFocus={this.props.autoFocus}
             onChange={ this.onChange }
-            placeholder='Edit Author'
+            placeholder={this.props.book.author || 'Edit Author'}
             type='text'
-            value={(this.state && this.state.author) || ''} />
+            value={(this.state && this.state.author) ||  ''} />
           <input
             name="image"
             autoFocus={this.props.autoFocus}
             onChange={ this.onChange }
-            placeholder='Edit Image URL'
+            placeholder={this.props.book.image || 'Edit Image URL'}
             type='text'
             value={(this.state && this.state.image) || ''} />
           <input
             name="releaseDate"
             autoFocus={ this.props.autoFocus }
             onChange={ this.onChange }
-            placeholder='Edit Release Date'
+            placeholder={this.props.book.releaseDate || 'Edit Release Date'}
             type='text'
-            value={(this.state && this.state.releaseDate) || ''} />
+            value={(this.state && this.state.releaseDate)  || ''} />
           <button type='submit'>{this.props.buttonName}</button>
         </form>
       </div>
