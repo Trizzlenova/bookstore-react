@@ -42,8 +42,8 @@ class Book extends Component {
                                                                       buttonName="Update Book!"
                                                                       onUpdateBook={this.props.onUpdateBook} />
                                                                  : <div className="actions">
-                                                                     <span onClick={this.editClickedBook}>Edit Entry</span>
-                                                                     <span onClick={this.deleteClickedBook}> Delete Entry </span>
+                                                                     <span className="crudButts" onClick={this.editClickedBook}>Edit Entry</span>
+                                                                     <span className="crudButts" onClick={this.deleteClickedBook}> Delete Entry </span>
                                                                        <Checkbox toggleHaveRead={this.bookComplete}/>
                                                                    </div>}
 
