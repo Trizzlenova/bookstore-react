@@ -15,9 +15,9 @@ class Books extends Component {
       )
     })
     return(
-      <section>
+      <div className="row">
         {books}
-      </section>
+      </div>
     )
   }
 }

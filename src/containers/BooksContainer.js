@@ -90,7 +90,7 @@ class BooksContainer extends Component {
     })
 
     return (
-      <div className="booksContainer">
+      <main className="booksContainer">
         <Books
           books={this.state.books}
           editingBookId={this.state.editingBookId}
@@ -99,7 +99,7 @@ class BooksContainer extends Component {
           onUpdateBook={this.updateBook}/>
         <CreateBookForm
           createBook={ this.createBook }/>
-      </div>
+      </main>
     )
   }
 }

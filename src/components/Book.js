@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import BookForm from './BookForm'
+import {Card, CardTitle, Col} from 'react-materialize'
 class Book extends Component {
 
   constructor() {
@@ -15,18 +16,27 @@ class Book extends Component {
   }
   render(){
     return(
-        <div className="book-card small" data-books-index={this.props.book.id}>
-          <img src={this.props.book.image} alt={this.props.book.title}></img>
-          <h2>{this.props.book.title}</h2>
-          <h3>{this.props.book.author}</h3>
-          <h4>{this.props.book.releaseDate}</h4>
-          <span onClick={ this.editClickedBook }>{this.props.book.title}</span>
-          { this.props.editingBookId === this.props.book._id ? <BookForm
-                                                                  autoFocus={true}
-                                                                  buttonName="Update Book!"
-                                                                  onUpdateBook={this.props.onUpdateBook} /> : '' }
-          <span className='deleteButton' onClick={this.deleteClickedBook}> (X) </span>
-        </div>
+      <Col m={4}>
+        <Card data-books-index={this.props.book.id} className='large card'
+          header={<CardTitle image={this.props.book.image}></CardTitle>}
+          actions={[
+            <div>
+              { this.props.editingBookId === this.props.book._id ? <BookForm
+                                                                      className="update"
+                                                                      autoFocus={true}
+                                                                      buttonName="Update Book!"
+                                                                      onUpdateBook={this.props.onUpdateBook} /> :
+                                                                  <div className="actions">
+                                                                    <span onClick={ this.editClickedBook }>Edit Entry</span>
+                                                                    <span onClick={this.deleteClickedBook}> Delete Entry </span>
+                                                                  </div>}
+
+            </div>]}>
+          <p>{this.props.book.title}</p>
+          <p>{this.props.book.author}</p>
+          <p>{this.props.book.releaseDate}</p>
+        </Card>
+      </Col>
     )
   }
 }

@@ -1,52 +1,23 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Brush Script MT", cursive;
+.actions {
+  display: flex;
+  justify-content: space-around;
 }
 
-header, .todos {
-  text-align: center
+.actions span {
+  border: 1px solid black;
+  padding: 0.25em 0.5em;
+  border-radius: 5px;
+}
+
+.actions span:hover {
+  border: 1px solid grey;
+  background-color: lightgrey;
+}
+
+.card:hover {
+  background-color: #CCEEFF;
 }
 
 .booksContainer {
-  width: 60%;
-  margin: auto;
-}
-
-h2 {
-  padding-bottom: .5em;
-  margin-bottom: .5em;
-}
-
-.incomplete h2{
-  border-bottom: 3px solid red;
-}
-
-h1, h2{
-  font-family: "Brush Script MT", cursive;
-}
-
-p {
-  font-family: "Brush Script MT", cursive;
-  font-size: 2em;
-}
-
-.bookForm {
-  clear:both;
-  text-align: center;
-}
-
-span.deleteButton, span.toggleButton {
-  padding-left: 1em;
-}
-
-.deleteButton{
-  color: red;
-}
-
-.createForm {
-  padding-top: 3em;
-  padding-bottom: 3em;
-  margin: auto;
-  width: 58%;
+  margin: 4em 2em;
 }
