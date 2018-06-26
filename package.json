@@ -1,5 +1,6 @@
 {
   "name": "book-store",
+  "homepage": "https://murmuring-badlands-70084.herokuapp.com/"
   "version": "0.1.0",
   "private": true,
   "engines": {
