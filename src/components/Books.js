@@ -8,7 +8,7 @@ class Books extends Component {
         <Book
           key={book._id}
           book={book}
-          onDeleteBook={this.props.onDeleteBook}
+          deleteBook={this.props.deleteBook}
           editingBookId={this.props.editingBookId}
           onEditBook={this.props.onEditBook}
           onUpdateBook={this.props.onUpdateBook}

@@ -13,17 +13,14 @@ class Checkbox extends Component {
   }
 
   handleCheckboxChange = (event) => {
-      console.log("checkbox changed!", event);
       this.setState({isChecked: event.target.checked})
   }
 
   toggleIsChecked = () => {
-      console.log("toggling isChecked value!");
       this.setState({isChecked: !this.state.isChecked})
     }
 
   handleButtonClick = (event) => {
-      console.log("button was pressed!", event);
       this.props.toggleHaveRead();
       this.toggleIsChecked();
   }

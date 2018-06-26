@@ -53,3 +53,8 @@
 .crudButts:hover {
    cursor: pointer;
 }
+
+.review-link {
+  margin: .25em auto;
+  text-align: center
+}
