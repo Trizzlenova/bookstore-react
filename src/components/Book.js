@@ -21,7 +21,7 @@ class Book extends Component {
     this.props.deleteBook(this.props.book);
   }
   editClickedBook() {
-      this.props.onEditBook(this.props.book)
+      this.props.editBook(this.props.book)
   }
   bookComplete() {
     this.setState({bookComplete: !this.state.bookComplete })
