@@ -44,7 +44,7 @@ class Book extends Component {
                       className="update"
                       autoFocus={true}
                       buttonName="Update Book!"
-                      onUpdateBook={this.props.onUpdateBook} />
+                      updateBook={this.props.updateBook} />
                  : <section>
                    <div className="actions">
                      <span className="crudButts" onClick={this.editClickedBook}>Edit Entry</span>
@@ -55,7 +55,6 @@ class Book extends Component {
                      <Link to={`/books/${this.props.book.title}`}>Read Reviews of {this.props.book.title}</Link>
                    </div>
                  </section>}
-
               </div>]}>
             <p>{this.props.book.title}</p>
             <p>{this.props.book.author}</p>

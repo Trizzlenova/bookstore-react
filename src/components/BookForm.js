@@ -14,7 +14,7 @@ class BookForm extends Component {
     event.preventDefault()
     let book = this.state
     if (book) {
-      this.props.onUpdateBook(book)
+      this.props.updateBook(book)
       this.setState({
         title: '',
         author: '',

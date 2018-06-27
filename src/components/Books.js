@@ -10,8 +10,8 @@ class Books extends Component {
           book={book}
           deleteBook={this.props.deleteBook}
           editingBookId={this.props.editingBookId}
-          onEditBook={this.props.onEditBook}
-          onUpdateBook={this.props.onUpdateBook}
+          editBook={this.props.editBook}
+          updateBook={this.props.updateBook}
           updateCheckbox={this.props.updateCheckbox}/>
       )
     })
